@@ -66,3 +66,7 @@ a10.nome = "leandro"
 a10.idade = 17
 
 a10.mostrarsituacao()
+
+
+
+
