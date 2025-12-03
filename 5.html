@@ -1,0 +1,221 @@
+<!--
+Nome do projeto: Loja Sustentável (exemplo)
+Tema: Loja online de produtos sustentáveis (cosméticos naturais, utensílios reutilizáveis, livros sobre sustentabilidade)
+Páginas: 1) Home (vitrine com destaque de produtos e hero) 2) Produtos (catálogo filtrável / categorias) 3) Sobre / Contato (missão, equipe, formulário de contato)
+
+Este arquivo é um rascunho/esqueleto HTML + CSS descritivo. Adapte conteúdo, imagens e rotas conforme necessário.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loja Sustentável — Home</title>
+  <style>
+    /* -----------------------------
+       Paleta de cores (variáveis)
+       -----------------------------
+       --brand-green: cor principal (ex: #2E8B57);
+       --accent: cor de destaque (ex: #FFD166);
+       --muted: cor neutra / texto secundário (ex: #6B7280);
+       --bg: fundo claro (ex: #FAFBF8);
+       --card-bg: branco levemente sombreado (ex: #FFFFFF);
+       --danger: cor para erros/alertas (ex: #E53E3E);
+    */
+    :root{
+      --brand-green: #2E8B57;
+      --accent: #FFD166;
+      --muted: #6B7280;
+      --bg: #FAFBF8;
+      --card-bg: #FFFFFF;
+      --danger: #E53E3E;
+      --radius: 12px;
+      --container-width: 1100px;
+      --gap: 1.25rem;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    /* -----------------------------
+       Reset / base
+       ----------------------------- */
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font-sans);
+      background:var(--bg);
+      color:#111827; /* texto principal */
+      -webkit-font-smoothing:antialiased;
+      line-height:1.45;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--container-width);
+    }
+
+    /* -----------------------------
+       Tipografia
+       ----------------------------- */
+    h1{font-size:2rem;margin:0 0 .5rem}
+    h2{font-size:1.25rem;margin:0 0 .5rem}
+    p{margin:0 0 1rem}
+
+    /* -----------------------------
+       Header / Nav
+       ----------------------------- */
+    header.site-header{
+      background:linear-gradient(90deg, rgba(46,139,87,0.06), transparent);
+      padding:1rem 0;
+      border-radius:var(--radius);
+      margin-bottom:var(--gap);
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    nav ul{display:flex;gap:1rem;align-items:center;list-style:none;padding:0;margin:0}
+    .btn-primary{
+      background:var(--brand-green);
+      color:white;padding:.6rem .9rem;border-radius:10px;border:none;cursor:pointer;text-decoration:none;font-weight:600
+    }
+
+    /* -----------------------------
+       Hero / Home
+       ----------------------------- */
+    .hero{
+      background:var(--card-bg);
+      padding:2rem;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(16,24,40,0.04);
+      display:grid;grid-template-columns:1fr 420px;gap:1.5rem;align-items:center;margin-bottom:var(--gap);
+    }
+    .hero .kicker{color:var(--brand-green);font-weight:700;letter-spacing:0.6px}
+    .search{display:flex;gap:.5rem}
+    .search input{flex:1;padding:.6rem .8rem;border-radius:10px;border:1px solid #E6E6E6}
+
+    /* -----------------------------
+       Card grid (produtos)
+       ----------------------------- */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+    .card{background:var(--card-bg);padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(16,24,40,0.04)}
+    .card img{width:100%;border-radius:8px;height:150px;object-fit:cover;margin-bottom:.5rem}
+    .price{font-weight:700}
+    .muted{color:var(--muted);font-size:.95rem}
+
+    /* -----------------------------
+       Footer
+       ----------------------------- */
+    footer{margin-top:var(--gap);text-align:center;color:var(--muted);font-size:.95rem}
+
+    /* -----------------------------
+       Responsivo (simples)
+       ----------------------------- */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      body{padding:1rem}
+    }
+
+    /* -----------------------------
+       Estilo descritivo (para Canva)
+       -----------------------------
+       - Use imagens com estética natural (madeira, tecido, folhas).
+       - Tipografia: Título com fonte sem-serif moderna forte; textos com fonte legível e espaçamento confortável.
+       - Espaçamento: generoso (margens amplas) para transmitir calma e confiança.
+       - Elementos: cartões com cantos arredondados, sombras suaves, botões com brand-green e micro-interações (hover soma leve sombra/transform).
+    */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header (comum a todas as páginas) -->
+    <header class="site-header">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <div style="width:44px;height:44px;border-radius:10px;background:var(--brand-green);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">LS</div>
+        <div>
+          <div style="font-weight:700">Loja Sustentável</div>
+          <div class="muted" style="font-size:.85rem">Produtos naturais e conscientes</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre / Contato</a></li>
+          <li><a class="btn-primary" href="#">Comprar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO (Home) -->
+    <section class="hero" aria-label="Destaque principal">
+      <div>
+        <div class="kicker">Feito para o planeta</div>
+        <h1>Produtos sustentáveis para o dia a dia</h1>
+        <p class="muted">Cosméticos naturais, utensílios reutilizáveis e conteúdos que ajudam você a reduzir o impacto ambiental.</p>
+        <div class="search">
+          <input placeholder="Busque por: escova, sabonete, canudo..." />
+          <button class="btn-primary">Buscar</button>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h2>Produto em destaque</h2>
+          <img src="https://via.placeholder.com/420x240" alt="Produto destaque"/>
+          <p class="price">R$ 39,90</p>
+          <p class="muted">Kit escova de bambu - 4 unidades</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Grid demonstrativo de produtos (Home / Produtos) -->
+    <section>
+      <h2>Produtos populares</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="https://via.placeholder.com/400x300" alt="produto" />
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Escova Bambu</div>
+              <div class="muted">Higiene natural</div>
+            </div>
+            <div class="price">R$ 12,90</div>
+          </div>
+        </article>
+
+        <!-- Repita cards conforme necessário -->
+        <article class="card">
+          <img src="https://via.placeholder.com/400x300" alt="produto" />
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Copo inox</div>
+              <div class="muted">Reutilizável</div>
+            </div>
+            <div class="price">R$ 59,90</div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://via.placeholder.com/400x300" alt="produto" />
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Sabonete vegano</div>
+              <div class="muted">Livre de crueldade</div>
+            </div>
+            <div class="price">R$ 18,50</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Footer comum -->
+    <footer>
+      <p>© 2025 Loja Sustentável — criado como rascunho</p>
+    </footer>
+  </div>
+</body>
+</html>
